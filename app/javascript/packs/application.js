@@ -9,3 +9,7 @@
 import 'bootstrap';
 
 console.log('Hello World from Webpacker')
+
+AOS.init({
+  duration: 1200,
+})
