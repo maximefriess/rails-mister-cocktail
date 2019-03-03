@@ -1,12 +1,18 @@
-<h1><%= @cocktail.name %></h1>
-<ul>
+<%= render "shared/cocktailBanner" %>
+<div class="cocktails-container">
+  <h4>Ingredients</h4>
   <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.description %>
-    <%= dose.ingredient.name %> - <%= link_to "Delete", cocktail_dose_path(@cocktail, dose),data: {:confirm => 'Are you sure?'}, :method => :delete %></li>
+  <div class="notification">
+    <div class="notification-content">
+      <p><%= dose.description %> <strong><%= dose.ingredient.name %></strong></p>
+    </div>
+    <div class="notification-actions">
+      <%= link_to "Delete", cocktail_dose_path(@cocktail, dose),data: {:confirm => 'Are you sure?'}, :method => :delete %><i class="far fa-trash-alt"></i></a>
+    </div>
+  </div>
   <% end %>
-</ul>
-<br>
-<p><%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail) %></p>
-<br>
-<p><%= link_to "Back to list", cocktails_path %></p>
+  <p><%= link_to "+ Add a new dose", new_cocktail_dose_path(@cocktail) %></p>
+  <br>
+  <p><%= link_to "Back to list", cocktails_path, { :class=>"btn btn-flat" } %></p>
+<div>
 
