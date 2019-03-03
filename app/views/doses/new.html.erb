@@ -6,7 +6,7 @@
   </div>
 
   <div class="form-group">
-    <%= d.association :ingredient, class: 'form-control' %>
+    <%= d.association :ingredient, collection: Ingredient.order('name ASC'), class: 'form-control' %>
   </div>
 
   <%= d.submit class: 'btn btn-primary' %>
