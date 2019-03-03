@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :cocktails, except: [:update, :edit, :destroy] do
     resources :doses, only: [:new, :create, :destroy]
   end
+  root to: 'cocktails#index'
 end
 
 #                    Prefix Verb   URI Pattern                                                                              Controller#Action
