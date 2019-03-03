@@ -4,9 +4,9 @@
     <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail), :action => 'go' do %>
         <% if cocktail.photo.file.nil? %>
-          <div class="card-category"><%= cocktail.name %></div>
+          <div class="card-category" data-aos="zoom-in"><%= cocktail.name %></div>
         <% else %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
            url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')"><%= cocktail.name %></div>
         <% end %>
       <% end %>
