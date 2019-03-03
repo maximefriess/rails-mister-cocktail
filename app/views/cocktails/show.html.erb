@@ -4,7 +4,7 @@
   <% @cocktail.doses.each do |dose| %>
   <div class="notification">
     <div class="notification-content">
-      <p><%= dose.description %> <strong><%= dose.ingredient.name %></strong></p>
+      <p><strong><%= dose.ingredient.name %></strong> - <%= dose.description %></p>
     </div>
     <div class="notification-actions">
       <%= link_to "Delete", cocktail_dose_path(@cocktail, dose),data: {:confirm => 'Are you sure?'}, :method => :delete %><i class="far fa-trash-alt"></i></a>
