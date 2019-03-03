@@ -3,9 +3,13 @@
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail), :action => 'go' do %>
-        <div <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)" data-aos="zoom-in"><%= cocktail.name %>
-        </div>
+        <% if cocktail.photo.file.nil? %>
+          <div class="card-category"><%= cocktail.name %></div>
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+           url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')"><%= cocktail.name %></div>
         <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
